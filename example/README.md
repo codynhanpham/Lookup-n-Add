@@ -6,9 +6,11 @@ Feel free to follow along with this example to see how the script works.
 
 The data used for this example is in the `data` folder. The first file, `In_00-In_24_allGenes_0.05.csv`, is the raw data file, and the second file, `V3.csv`, is the lookup table. Please take a look at the files to see what they look like.
 
+You can download the [rawdata.zip](https://github.com/codynhanpham/Lookup-n-Add/blob/main/example/data/rawdata.zip) file, which contains the two aforementioned files, to follow along.
+
 ## The Objective
 
-We can see that the raw data file lacks the `GeneName` column, which is present in the `V3.csv` lookup table. We will try to add the `GeneName` column to the raw data file using the lookup file.
+We can see that the raw data file lacks the `GeneName` column, which is present in the `V3.csv` lookup table. We will try to add the `geneName` column to the raw data file using the lookup file.
 
 # The Run
 
