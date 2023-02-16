@@ -26,13 +26,13 @@ You will be prompted to select the lookup file. In this example, it is the `V3.c
 
 Then, paste the path into the terminal or command prompt and press `Enter`. On Windows, it is Right-Click to paste. The window should look like this after this step:
 
-![Step 2: Lookup file path](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/lookup-path.png)
+![Step 2: Lookup file path](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/media/lookup-path.png)
 
 ### Step 3: Select the `Lookup` Key Column Header
 
 Available column headers will be displayed. Type in or copy the column header that you want to use to match the data in the lookup file. In this example, we will use the `GeneID` column. Things should look like this after this step:
 
-![Step 3: Lookup column header](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/lookup-column-header.png)
+![Step 3: Lookup column header](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/media/lookup-column-header.png)
 
 ### Step 4: Select the `Lookup` Value Column Header
 
@@ -42,7 +42,7 @@ Similar to the previous step, we now want the column with the values that we wan
 
 Select the raw data file. In this example, it is the `In_00-In_24_allGenes_0.05.csv` file. Things should look like this after this step:
 
-![Step 5: Raw data file path](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/raw-data-path.png)
+![Step 5: Raw data file path](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/media/raw-data-path.png)
 
 ### Step 6: Select the `Raw Data` Key Column Header
 
@@ -54,7 +54,7 @@ You now name the header for the column that will be added to the raw data file. 
 
 The window should now look something like this:
 
-![Step 7: Raw data column header](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/raw-data-column-header.png)
+![Step 7: Raw data column header](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/media/raw-data-column-header.png)
 
 ### Step 8: Wait and Profit
 
@@ -65,4 +65,4 @@ You can then simply close the window to exit the script. The new file will be sa
 **Summary**
 
 
-![Step 8: Summary](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/summary.png)
+![Step 8: Summary](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/media/summary.png)
