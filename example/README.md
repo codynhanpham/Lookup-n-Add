@@ -22,9 +22,9 @@ You will be prompted to select the lookup file. In this example, it is the `V3.c
 
 - On Windows machines, holding down the `Shift` key and right-clicking on the file will give you the option to `Copy as path`. If you are on Windows 11, a quick shortcut is to press `Ctrl + Shift + C` after selecting the file.
 
-- On MacOS, you can right-click (Control-click) on the file and select `Copy "V3.csv" as Pathname`.
+- On MacOS, you can `Command + C` to copy the path.
 
-Then, paste the path into the terminal or command prompt and press `Enter`. On Windows, it is Right-Click to paste. The window should look like this after this step:
+Then, paste the path into the terminal or command prompt and press `Enter`. On Windows, it is Right-Click to paste, while on Mac, it is `Command + V`. The window should look like this after this step:
 
 ![Step 2: Lookup file path](https://raw.githubusercontent.com/codynhanpham/Lookup-n-Add/main/example/media/lookup-path.png)
 
