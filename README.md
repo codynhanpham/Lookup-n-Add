@@ -61,7 +61,7 @@ npx pkg build_node14.js -t node14
 
 *Tips: After single-clicking to select the file, on Windows 10, another way to get the path is to go to `Home` (top left) → `Copy path...`. On Windows 11, right-clicking the file will give you the option to `Copy as path` in the context menu.*
 
-4. Follow the prompts to enter the paths and column names. Please see the [example page](https://github.com/codynhanpham/Lookup-n-Add/example) for a step-by-step walkthrough.
+4. Follow the prompts to enter the paths and column names. Please see the [example page](https://github.com/codynhanpham/Lookup-n-Add/tree/main/example) for a step-by-step walkthrough.
 
 5. The original input file will be untouched, and the output file will be named `<your-inputFileName>-added.csv` in the same directory as the input file. *If you have your folder sorted by file name, the output file should be right next to the input file.*
 
