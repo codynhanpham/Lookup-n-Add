@@ -1,0 +1,23 @@
+{
+  "name": "lookup-n-add",
+  "version": "1.0.0",
+  "description": "A script to perform a dictionary-like lookup and add the terms to a new CSV column.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "KovacsLab",
+    "Lookup",
+    "Dictionary",
+    "CSV",
+    "Translate"
+  ],
+  "author": "Cody Nhan Pham",
+  "license": "MIT",
+  "dependencies": {
+    "convert-csv-to-json": "^1.4.0",
+    "prompt-sync": "^4.2.0"
+  }
+}
