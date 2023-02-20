@@ -59,7 +59,7 @@ npx pkg build_node14.js -t node14
 
 3. Regardless of the location of the input (raw) `.csv` file (it does not have to be in the same directory as the script), you will be prompted to enter the path to the input file. On Windows machines, after selecting the file, the shortcut is `Ctrl + Shift + C`. On MacOS, simply `Command + C` while selecting the file will do the trick.
 
-*Tips: After single-clicking to select the file, on Windows 10, another way to get the path is to go to `Home` (top left) → `Copy path...`. On Windows 11, right-clicking the file will give you the option to `Copy as path` in the context menu.*
+*Tips: After single-clicking to select the file, on Windows 10, another way to get the path is to go to `Home` (top left) → `Copy path...`. On Windows 11, right-clicking the file will give you the option to `Copy as path` in the context menu; meanwhile, on Windows 10, holding `Shift` while right-clicking will show the option.*
 
 4. Follow the prompts to enter the paths and column names. Please see the [example page](https://github.com/codynhanpham/Lookup-n-Add/tree/main/example) for a step-by-step walkthrough.
 
