@@ -1,5 +1,5 @@
 {
-    "lookupTablePath": "D://lookup-n-add/testdata/V3+V1.csv",
+    "lookupTablePath": "D:/lookup-n-add/testdata/V3+V1.csv",
     "lookupKey": "V3GeneID",
     "lookupValues": "GeneName0, chromosome, Chormepositionstart, Chormepositionend, Functionalannotation, Network, Functionnalcategory1, Functionnalcategory2, Functionnalcategory3, Functionnalcategory4, Functionnalcategory5, Functionnalcategory6, Functionnalcategory7, Functionnalcategory8, Bestarabidopsismatch, GeneOntology, PlantOntology, Pfam, Smart, Prosite, Psort, AccessionUniprotforpublishedgrapevineprotein",
     "inputDataPath": "",
