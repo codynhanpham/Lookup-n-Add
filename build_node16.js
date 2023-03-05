@@ -735,7 +735,7 @@ if (import_fs2.default.existsSync("./settings.json")) {
   Settings = JSON.parse(import_fs2.default.readFileSync("./settings.json", "utf8"));
 } else {
   const settingsJSON = JSON.stringify(settings_default, null, 4);
-  import_fs2.default.writeFileSync("/.settings.json", settingsJSON, "utf8");
+  import_fs2.default.writeFileSync("./settings.json", settingsJSON, "utf8");
   Settings = JSON.parse(import_fs2.default.readFileSync("/.settings.json", "utf8"));
 }
 console.clear();

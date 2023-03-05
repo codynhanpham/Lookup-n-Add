@@ -13,7 +13,7 @@ if (fs.existsSync("./settings.json")) {
 } else {
     // Make a settings.json file using the template settings.js file
     const settingsJSON = JSON.stringify(settings, null, 4);
-    fs.writeFileSync("/.settings.json", settingsJSON, "utf8");
+    fs.writeFileSync("./settings.json", settingsJSON, "utf8");
     Settings = JSON.parse(fs.readFileSync("/.settings.json", "utf8"));
 }
 
