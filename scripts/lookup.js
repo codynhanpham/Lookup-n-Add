@@ -1,28 +1,39 @@
-function lookUpAndAdd(lookupTable, lookupKey, lookupValue, inputData, dataKey, dataValue, insertAfter) {
-    // loop through the data table, for each row, find the corresponding row in the lookup table using the keys
-    // then add the value from the lookup table to the data table, with the new column name (dataValue)
-    // if the lookup fails, the new column will be added with an "NA"
-    // if insertAfter is not specified, the new column will be added to the end of the row
-    // if insertAfter is specified, the new column will be added after the column specified by insertAfter
+function lookUpAndAdd(lookupTable, lookupKey, lookupValues, inputData, dataKey, dataValues) {
+    // Use a hash table to store the lookup table for O(1) lookup time
+    const lookupList = makeLookupList(lookupTable, lookupKey, lookupValues);
 
     let successCount = 0;
-    for (let i = 0; i < inputData.length; i++) {
-        for (let j = 0; j < lookupTable.length; j++) {
-            if (inputData[i][dataKey] === lookupTable[j][lookupKey]) {
-                inputData[i][dataValue] = lookupTable[j][lookupValue];
-                inputData[i] = moveKeyInObject(inputData[i], dataValue, insertAfter);
-                successCount++;
-                break;
+    for (let row of inputData) {
+        if (lookupList[row[dataKey]]) {
+            for (let i = 0; i < lookupValues.length; i++) {
+                row[dataValues[i]] = lookupList[row[dataKey]][lookupValues[i]];
             }
-            if (j === lookupTable.length - 1) { // if the loop reaches the end of the lookup table without finding a match
-                inputData[i][dataValue] = "NA";
-                inputData[i] = moveKeyInObject(inputData[i], dataValue, insertAfter);
+            successCount++;
+        } else {
+            for (let i = 0; i < lookupValues.length; i++) {
+                row[dataValues[i]] = "NA";
             }
         }
     }
 
     console.log(`\n${successCount}/${inputData.length} (${successCount/inputData.length*100}%) rows were successfully matched.`);
     return inputData;
+}
+
+function makeLookupList(lookupTable, lookupKey, lookupValues) {
+    // make a lookup list from the lookup table
+    // the lookup list is an object with the lookupKey as the key and the {lookupValues} as the value
+    // this will be used to speed up the lookup process
+
+    let lookupList = {};
+    for (let row of lookupTable) {
+        lookupList[row[lookupKey]] = {};
+        for (let value of lookupValues) {
+            lookupList[row[lookupKey]][value] = row[value];
+        }
+    }
+
+    return lookupList;
 }
 
 function moveKeyInObject(object, key, insertAfter) {
@@ -52,4 +63,31 @@ function moveKeyInObject(object, key, insertAfter) {
     return newObject;
 }
 
-export { lookUpAndAdd };
+function checkDuplicateKeys(lookupTable, lookupKey) {
+    // check if there are any duplicate value in the lookupKey column (this will be used to match, so it must be unique)
+    // return an object with: { hasDuplicate: true/false, duplicateKeys: [array of duplicate keys], uniqueKeys: [array of unique keys] }
+
+    console.log(`\nChecking for duplicate keys in the "${lookupKey}" column (This will only be run once)...`);
+    console.time("Check Duplicate Keys");
+    let duplicateKeys = [];
+    let uniqueKeys = [];
+    let hasDuplicate = false;
+
+    const lookupKeyList = lookupTable.map(row => row[lookupKey]);
+
+    for (let i = 0; i < lookupKeyList.length; i++) {
+        if (uniqueKeys.includes(lookupKeyList[i])) {
+            if (!duplicateKeys.includes(lookupKeyList[i])) {
+                duplicateKeys.push(lookupKeyList[i]);
+            }
+            hasDuplicate = true;
+        } else {
+            uniqueKeys.push(lookupKeyList[i]);
+        }
+    }
+
+    console.timeEnd("Check Duplicate Keys");
+    return { hasDuplicate, duplicateKeys, uniqueKeys };
+}
+
+export { lookUpAndAdd, checkDuplicateKeys };

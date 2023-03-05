@@ -34,8 +34,9 @@ function inputYesNo(message) {
     return input;
 }
 
-function inputPath(message) {
-    let input = prompt(message);
+function inputPath(message, defaultValue) {
+    if (defaultValue) { console.log(`Simply hit Enter to use the settings' default: ${defaultValue}`) };
+    let input = prompt(message, defaultValue);
     // trim quotation marks at the beginning and end of the path
     input = input.replace(/^"(.*)"$/, '$1');
 
@@ -43,32 +44,52 @@ function inputPath(message) {
         return input;
     } else {
         console.log("Path does not exist. Please enter a valid path.");
-        input = inputPath(message);
+        input = inputPath(message, defaultValue);
     }
-    return input;
 }
 
-function inputKey(message, dataTable) {
-    let input = prompt(message);
+function inputKey(message, dataTable, defaultValue) { // input a single key
+    if (defaultValue) { console.log(`Simply hit Enter to use the settings' default: ${defaultValue}`) };
+    let input = prompt(message, defaultValue);
     input = input.trim();
-    let headerExists = false;
-    for (let i = 0; i < dataTable.length; i++) {
-        if (dataTable[i][input] !== undefined) {
-            headerExists = true;
-            break;
-        }
-    }
-    if (headerExists) {
+    let headerList = Object.keys(dataTable[0]);
+    if (headerList.includes(input)) {
         return input;
     } else {
         console.log("Column header does not exist. Please enter a valid column header.");
-        input = inputKey(message, dataTable);
+        input = inputKey(message, dataTable, defaultValue);
     }
-    return input;
 }
 
-function inputKeyUnique(message, dataTable) {
-    let input = prompt(message);
+function inputKeys(message, dataTable, defaultValue) { // input multiple keys, comma separated
+    if (defaultValue) { console.log(`Simply hit Enter to use the settings' default: ${defaultValue}`) };
+    let headers = [];
+    let invalid = [];
+    let input = prompt(message, defaultValue);
+    input = input.trim();
+    input = input.split(",");
+    for (let i = 0; i < input.length; i++) {
+        input[i] = input[i].trim();
+
+        let headerList = Object.keys(dataTable[0]);
+        if (headerList.includes(input[i])) {
+            headers.push(input[i]);
+        } else {
+            invalid.push(input[i]);
+        }
+    }
+
+    if (invalid.length > 0) {
+        console.log(`Column header(s) ${invalid.join(", ")} do not exist. Please enter valid column header(s).`);
+        input = inputKey(message, dataTable, defaultValue);
+    } else {
+        return headers;
+    }
+}
+
+function inputKeyUnique(message, dataTable, defaultValue) {
+    if (defaultValue) { console.log(`Simply hit Enter to use the settings' default: ${defaultValue}`) };
+    let input = prompt(message, defaultValue);
     input = input.trim();
     // replace spaces with empty string
     input = input.replace(/\s/g, "");
@@ -76,9 +97,38 @@ function inputKeyUnique(message, dataTable) {
     let headerList = Object.keys(dataTable[0]);
     if (headerList.includes(input)) {
         console.log("Column header already exists. Please enter a unique column header.");
-        input = inputKeyUnique(message, dataTable);
+        input = inputKeyUnique(message, dataTable, defaultValue);
     }
     return input;
+}
+
+function inputKeysUnique(message, dataTable, defaultValue) { // input multiple keys, comma separated
+    if (defaultValue) { console.log(`Simply hit Enter to use the settings' default: ${defaultValue}`) };
+    let headers = [];
+    let invalid = [];
+    let input = prompt(message, defaultValue);
+    input = input.trim();
+    // replace spaces with empty string
+    input = input.replace(/\s/g, "");
+    input = input.split(",");
+    
+    for (let i = 0; i < input.length; i++) {
+        input[i] = input[i].trim();
+
+        let headerList = Object.keys(dataTable[0]);
+        if (headerList.includes(input) || input === "") {
+            invalid.push(input[i]);
+        } else {
+            headers.push(input[i]);
+        }
+    }
+
+    if (invalid.length > 0) {
+        console.log(`Column header(s) ${invalid.join(", ")} already exist. Please enter unique column header(s).`);
+        input = inputKeyUnique(message, dataTable, defaultValue);
+    } else {
+        return headers;
+    }
 }
 
 function listKeys(dataTable) {
@@ -89,4 +139,4 @@ function listKeys(dataTable) {
     }
 }
 
-export { inputString, inputNumber, inputYesNo, inputPath, inputKey, inputKeyUnique, listKeys };
+export { inputString, inputNumber, inputYesNo, inputPath, inputKey, inputKeys, inputKeyUnique, inputKeysUnique, listKeys };

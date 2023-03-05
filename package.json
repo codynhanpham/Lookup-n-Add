@@ -1,6 +1,6 @@
 {
   "name": "lookup-n-add",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A script to perform a dictionary-like lookup and add the terms to a new CSV column.",
   "main": "index.js",
   "type": "module",
